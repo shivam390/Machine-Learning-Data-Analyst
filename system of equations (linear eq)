@@ -19,3 +19,7 @@ plt.grid()
 plt.show()
 
 # the intersection point shows the number of $10 chips and $25 chips present in the bag.
+# same can be done using elemination using both the equations
+x = 10
+y = 6
+print ((x + y == 16) & ((10*x) + (25*y) == 250))
