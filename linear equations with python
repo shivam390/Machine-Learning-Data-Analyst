@@ -1,0 +1,116 @@
+#equation we have is 2y+3 = 3x-1 i.e y=3x-4/2
+
+import pandas as pd 
+import matplotlib.pyplot as plt
+
+#creating a dataframe with an x column containing values from -10 to 10
+
+x = {'x': range(-10,11)}
+df = pd.DataFrame(data=x)
+
+#add a y column by applying the solved equation to x
+
+y = (3*df['x'] - 4)/2
+df['y'] = pd.DataFrame(data=y)
+
+print(df)
+
+#plotting these values to visualize the relationship between x and y as a line.
+
+plt.plot(df.x, df.y, color="grey", marker = "o")
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.grid()
+plt.show()
+
+#In linear equation a valid solution is described by an correct ordered pair of x and y here are 
+# (-10,-17), (6,7), (9,11.5)
+
+#Intercepts (x intercept is where the line intercept/crosses the x (horizontal)axis at this point value of y is zero(y=0) and same for y axis)
+
+plt.plot(df.x, df.y, color = "grey")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid()
+
+## adding axis line for 0,0
+
+plt.axhline()
+plt.axvline()
+
+#from the equation shown above on top our x-intercept will be put y=0 and solve 1^1/3 (1.333) and same for y-intercept (equals to -2)
+
+plt.annotate('x-intercept',(1.333,0))
+plt.annotate('y-intercept',(0,-2))
+plt.show()
+
+#to calculate the intercepts for a linear equation is useful, because you can calculate only these two points and then draw a straight line through them to create the entire line for the equation.
+#Slope  ( It can be useful to quantify the slope in terms of how much x increases (or decreases) for a given change in y)
+#(0,-2),(6,7) m=y2-y1/x2-x1 = 1.5
+#it tells us that for every change of 1 in x, y changes by 1.5. So if we start from any point on the line and move one unit to the right (along the X axis), we'll need to move 1.5 units up (along the Y axis) to get back to the line.
+
+plt.plot(df.x, df.y, color = "grey")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid()
+plt.axhline()
+plt.axvline()
+
+#set the slope
+
+m=1.5 
+
+#get the y-intercept
+
+yint = -2
+
+#plot the slope from y-intercept for 1x
+
+mx = [0,1]
+my = [yint, yint+m]
+plt.plot(mx, my, color = "red", lw=5)
+plt.show()
+
+###################################################
+
+
+#Slope intercept Form
+
+#the equation definition includes the slope and y-intercept. The generalised slope-intercept (y=mx+b), Where m is the slope and b is the y-intercept so the above equation on top and this equation is same but this is very simple and it have two  major parameters that y-intercept pass through (0,-2) and slope of the line (for every x, we add 1.5 to y) 
+# re-writing the equation
+
+import pandas as pd
+import matplotlib.pyplot as plt 
+
+df = pd.DataFrame({'x':range(-10,11)})
+
+m = 1.5
+
+yint = -2
+
+df['y']  = m*df["x"] + yint
+
+plt.plot(df.x, df.y, color="green")
+plt.xlabel("x")
+plt.ylabel('y')
+plt.grid()
+plt.axhline()
+plt.axvline()
+
+plt.annotate('y-intercept',(0,yint))
+
+#plot the slope for 1x
+
+mx = [0,1]
+
+my = [yint, yint + m]
+
+plt.plot(mx,my, color = "red", lw=5)
+
+plt.show()
+
+
+
+
+
+
