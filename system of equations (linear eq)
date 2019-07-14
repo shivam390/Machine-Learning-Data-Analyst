@@ -1,0 +1,21 @@
+#system of equation (chips of $10 and $25 are mixed total chips in bag is 25 and amounting to $250 calculate the number of chips combinations how many 10s and 25s are there)
+#x+y =16 and 10x+25y=250
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+chipsall10s = [16, 0]
+chipsall25s = [0, 16]
+
+valueall10s = [25, 0]
+valueall25s = [0, 10]
+
+plt.plot(chipsall10s,chipsall25s, color = 'blue')
+plt.plot(valueall10s,valueall25s, color = "orange")
+plt.xlabel('x($10 chips)')
+plt.ylabel('y($25 chips)')
+plt.grid()
+plt.show()
+
+# the intersection point shows the number of $10 chips and $25 chips present in the bag.
