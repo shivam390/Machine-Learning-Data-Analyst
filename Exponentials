@@ -1,0 +1,17 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x = {"x": range(-10,11)}
+
+df = pd.DataFrame(x)
+
+df['y'] = 3*df['x']**3
+print(df)
+
+plt.plot(df.x, df.y, color="magenta")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid()
+plt.axhline()
+plt.axvline()
+plt.show()
