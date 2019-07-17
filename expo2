@@ -1,0 +1,20 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x = {"x": range(-10,11)}
+
+df = pd.DataFrame(x)
+
+df['y'] = 2.0**df["x"]
+print(df)
+
+plt.plot(df.x, df.y, color="magenta")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid()
+plt.axhline()
+plt.axvline()
+plt.show()
+
+#Note that when the exponential is a negative number python report it as "0"
+#Actually, it's a very small fractional number, but because the base is positive the exponential number will always positive.
