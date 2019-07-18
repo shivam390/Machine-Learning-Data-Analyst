@@ -1,0 +1,21 @@
+#suppose you deposit $100 in a bank account that earns 5% interest per year. What would the balance of the account be in twenty years, assuming you don't deposit or withdraw any additional funds?
+
+import pandas as pd
+
+# Create a dataframe with 20 years
+df = pd.DataFrame ({'Year': range(1, 21)})
+
+# Calculate the balance for each year based on the exponential growth from interest
+df['Balance'] = 100 * (1.05**df['Year'])
+
+#Display the dataframe
+print(df)
+
+# Plot the line
+%matplotlib inline
+from matplotlib import pyplot as plt
+
+plt.plot(df.Year, df.Balance, color="green")
+plt.xlabel('Year')
+plt.ylabel('Balance')
+plt.show()
