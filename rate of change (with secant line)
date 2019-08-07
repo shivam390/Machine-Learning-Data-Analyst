@@ -1,0 +1,35 @@
+def r(x):
+    return x**2 + x
+
+# Plot the function
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Create an array of x values from 0 to 10
+x = np.array(range(0, 11))
+
+# Create an array for the secant line
+s = np.array([2,7])
+
+# Calculate rate of change
+x1 = s[0]
+x2 = s[-1]
+y1 = r(x1)
+y2 = r(x2)
+a = (y2 - y1)/(x2 - x1)
+
+
+# Set up the graph
+plt.xlabel('Seconds')
+plt.ylabel('Meters')
+plt.grid()
+
+# Plot x against r(x)
+plt.plot(x,r(x), color='green')
+
+# Plot the secant line
+plt.plot(s,r(s), color='magenta')
+
+plt.annotate('Average Velocity =' + str(a) + ' m/s',((x2+x1)/2, (y2+y1)/2))
+
+plt.show()
