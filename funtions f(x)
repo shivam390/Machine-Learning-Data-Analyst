@@ -1,0 +1,47 @@
+def plot_parabola_from_vertex_form(a, h, k):
+    import pandas as pd
+    import math
+
+    # Create a dataframe with an x column a range of x values to plot
+    df = pd.DataFrame ({'x': range(h-10, h+11)})
+
+    # Add a y column by applying the quadratic equation to x
+    df['y'] = (a*(df['x'] - h)**2) + k
+
+    # get min and max y values
+    miny = df.y.min()
+    maxy = df.y.max()
+
+    # calculate y when x is 0 (h+-h)
+    y = a*(0 - h)**2 + k
+
+    # Plot the line
+    %matplotlib inline
+    from matplotlib import pyplot as plt
+
+    plt.plot(df.x, df.y, color="grey")
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.grid()
+    plt.axhline()
+    plt.axvline()
+
+    # Plot calculated y values for x = 0 (h-h and h+h)
+    plt.scatter([h-h, h+h],[y,y], color="green")
+    plt.annotate(str(h-h) + ',' + str(y),(h-h, y))
+    plt.annotate(str(h+h) + ',' + str(y),(h+h, y))
+
+    # plot the line of symmetry (x = h)
+    sx = [h, h]
+    sy = [miny, maxy]
+    plt.plot(sx,sy, color='magenta')
+
+    # Annotate the vertex (h,k)
+    plt.scatter(h,k, color="red")
+    plt.annotate('v=' + str(h) + ',' + str(k),(h, k), xytext=(h - 1, (k - 10)))
+
+    plt.show()
+
+    
+# Call the function for the example discussed above
+plot_parabola_from_vertex_form(2, 4, -30)
