@@ -1,0 +1,29 @@
+#h(x)=2_/x {where x is real number | x>=0}
+
+def h(x):
+    if x >= 0:
+        import numpy as np 
+        return 2 * np.sqrt(x)
+
+# Plot output from function h
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Create an array of x values from -100 to 100
+x = range(-100, 101)
+print(x)
+# Get the corresponding y values from the function
+y = [h(a) for a in x]
+print(y)
+# Set up the graph
+plt.xlabel('x')
+plt.ylabel('h(x)')
+plt.grid()
+
+# Plot x against h(x)
+plt.plot(x,y, color='purple')
+
+# plot a filled circle at the end to indicate a closed interval
+plt.plot(0, h(0), color='purple', marker='o', markerfacecolor='purple', markersize=8)
+
+plt.show()
