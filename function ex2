@@ -1,0 +1,29 @@
+#j(x)=x+2 {where x>=0 and x<=5}
+
+
+def j(x):
+    if x >= 0 and x <= 5:
+        return x + 2
+
+    
+# Plot output from function j
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Create an array of x values from -100 to 100
+x = range(-100, 101)
+y = [j(a) for a in x]
+
+# Set up the graph
+plt.xlabel('x')
+plt.ylabel('j(x)')
+plt.grid()
+
+# Plot x against k(x)
+plt.plot(x, y, color='purple')
+
+# plot a filled circle at the ends to indicate an open interval
+plt.plot(0, j(0), color='purple', marker='o', markerfacecolor='purple', markersize=8)
+plt.plot(5, j(5), color='purple', marker='o', markerfacecolor='purple', markersize=8)
+
+plt.show()
