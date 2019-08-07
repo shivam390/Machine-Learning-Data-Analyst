@@ -1,0 +1,24 @@
+def k(x):
+    if x == 0:
+        return 0
+    elif x == 100:
+        return 1
+
+    
+# Plot output from function k
+from matplotlib import pyplot as plt
+
+# Create an array of x values from -100 to 100
+x = range(-100, 101)
+# Get the k(x) values for every value in x
+y = [k(a) for a in x]
+
+# Set up the graph
+plt.xlabel('x')
+plt.ylabel('k(x)')
+plt.grid()
+
+# Plot x against k(x)
+plt.scatter(x, y, color='purple')
+
+plt.show()
