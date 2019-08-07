@@ -1,0 +1,19 @@
+def r(x):
+    return x**2 + x
+
+# Plot the function
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Create an array of x values from 0 to 10
+x = np.array(range(0, 11))
+
+# Set up the graph
+plt.xlabel('Seconds')
+plt.ylabel('Meters')
+plt.grid()
+
+# Plot x against r(x)
+plt.plot(x,r(x), color='green')
+
+plt.show()
