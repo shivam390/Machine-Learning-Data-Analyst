@@ -1,0 +1,41 @@
+import datetime as dt
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+
+df = pd.read_csv("/Users/shivamgautam/Downloads/edureka ML and AI/practise work/train.csv")
+
+# ### Question 1: Create the following features from the column "datetime" in the above dataframe
+# #### 1) Hour: Hour in the datetime, e.g., datetime = 5/2/2012 19:00, hour = 19
+# #### 2) weekday: e.g., datetime = 5/2/2012 19:00, weekday = Wednesday	
+# #### 3) Month: e.g., datetime = 5/2/2012 19:00, Month = May
+# #### 4) date: e.g., datetime = 5/2/2012 19:00, date = 5/2/2012
+
+df["datetime"] = pd.to_datetime(df.datetime)
+
+df['date'] = df.datetime.dt.date
+df['hour'] = df.datetime.dt.hour
+df["weekday"] = df.datetime.dt.weekday_name
+df["month"] = df.datetime.dt.month_name()
+
+
+# ### Question 2: Find the average number of bookings in each month across years and sort the data by average number of bookings in descending order
+
+df["year"] = df.datetime.dt.year
+monthAggregated = df.groupby(["year", "month"]).sum()
+monthSorted = monthAggregated.sort_values(["Total_booking"], ascending = False)
+
+
+# ### Question 3 
+# #### 1) Convert categorical variables into one-hot encoded features
+# #### 2) Concat one hot enoded features into original dataframe
+# #### 3) Remove the original columns from the dataframe
+# 
+
+#To be given to students
+#categoryVariableList = ["weekday","month","season","weather"]
+#Set all the columns datatype in the above list as categorical
+#write your code
+dfnew = pd.get_dummies(df, columns = ["weekday","month","season","weather"])
+dfnew
+
+
